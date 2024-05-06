@@ -160,7 +160,8 @@ cython_debug/
 #.idea/
 
 # VSCode configuration files
-.vscode/
+# LuMe: commented because this will provide the same environment for all
+#.vscode/
 
 # Data folder
 data/
