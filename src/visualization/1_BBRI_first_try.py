@@ -46,8 +46,8 @@ for dirname, _, filenames in os.walk(path_base):
 # Creating the dataframe
 df = pd.DataFrame(data = raw_data)
 
-#print(df.info())
-#print(df.head())
+print(df.info())
+print(df.head())
 
 # Plotting our first data
 plt.figure(figsize = (10, 10))
