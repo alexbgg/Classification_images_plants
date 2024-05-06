@@ -1,0 +1,19 @@
+Actions so far:
+1. Creation of an account at kaggle
+2. Downloading the first dataset to local disk: https://www.kaggle.com/vbookshelf/v2-plant-seedlings-dataset
+3. Unpacking the zip file
+4. First explorations:
+	- Multiple png files per subfolder, name of subfolder is the name of the plant?
+	- Subfolder "nonsegmentedv2" contains a copy of all the files and this data is redundant?
+5. Renamed one folder ("Shepherds Purse") to fix issue with corrupted name
+6. Creating a python script to read the attributes of all the pictures, to create a dataframe and to draw some first plots.
+
+Questions:
+1. What exactly is our task?
+2. What is the type of input/format required to train our model(s)?
+3. Do the pictures need to be reformatted (e.g. size to be harmonized, background to be removed)?
+4. What is required for Colab? - check Tutorials as suggested by Luigi
+5. How to split tasks to make good use of our different talents?
+6. How to ensure good follow-up to stay in sync for our activities
+
+
