@@ -8,5 +8,6 @@
     "ms-toolsai.jupyter-renderers",
     "njpwerner.autodocstring",
     "streetsidesoftware.code-spell-checker",
+    "charliermarsh.ruff",
   ]
 }
