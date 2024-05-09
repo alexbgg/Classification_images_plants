@@ -9,10 +9,11 @@ The project that has been assigned to you is the following: [Plant recognition](
 
 1. Your first task will be to define the context and the scope of the project: I expect you to really take the time to understand the project and to learn as much as possible about the concepts it will introduce.
 2. You will then have to take in hand and discover your dataset and make an almost exhaustive analysis of it in order to highlight the structure, the difficulties and possible biases of the dataset.
+
 You can use this template: [Data Audit](https://drive.google.com/open?id=1BZF56pzSsScHQZjJnM945iCcAKyxm2BqRsv7at-1bqY&usp=drive_copy)
 3. I will also expect at least 5 graphical representations built from your dataset, visual and especially relevant. For each of them I will expect:
-4. A precise commentary, which analyzes the figure and provides a “business” opinion.
-5. A validation of the observation by data manipulation or a statistical test.
+   - A precise commentary, which analyzes the figure and provides a “business” opinion.
+   - A validation of the observation by data manipulation or a statistical test.
 
 ## Step 2
 - [ ] Pre-processing and feature engineering : 17.05.2024
