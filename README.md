@@ -1,13 +1,12 @@
-Plant Recognition
-==============================
+# Plant Recognition
 
 This repo is a Starting Pack for DS projects. You can rearrange the structure to make it fits your project.
 
-Project Organization
-------------
+## Project Organization
 
     ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project.
+    ├── Plan_summary.md    <- The summary plan for developers using this project.
     ├── data               <- Should be in your computer but not on Github (only in .gitignore)
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
@@ -40,6 +39,10 @@ Project Organization
     │   ├── visualization  <- Scripts to create exploratory and results oriented visualizations
     │   │   └── visualize.py
 
---------
+
+## Summary plan
+Please refer [here](Plan_summary.md)
+
+
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
