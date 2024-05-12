@@ -1,4 +1,5 @@
-name: cicd-workflow with slack integration
+name: slack - GitHub Actions Slack integration
+  uses: act10ns/slack@v2.1.0
 on:
   push:
     branches: [ "master" ]
@@ -24,3 +25,5 @@ jobs:
         status: ${{ job.status }}
         steps: ${{ toJson(steps) }}
       if: always()
+
+            
