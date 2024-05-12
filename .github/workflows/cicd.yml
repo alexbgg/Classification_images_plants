@@ -1,7 +1,8 @@
 name: slack - GitHub Actions Slack integration
 on:
   push:
-    branches: [ master ]
+    branches:
+    - 'master'
 jobs:
   job_1:
     runs-on: ubuntu-latest
