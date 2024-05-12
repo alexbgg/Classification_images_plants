@@ -1,9 +1,9 @@
 name: slack - GitHub Actions Slack integration
 on:
   push:
-    branches: [ "master" ]
+    branches: [ master ]
 jobs:
-  job1:
+  job_1:
     runs-on: ubuntu-latest
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -14,15 +14,14 @@ jobs:
         channel: '#apr24_bds_int_plant_recognition'
         message: Push code/data to the repo ...
       if: always()
-    - uses: actions/checkout@v3
-    - name: Dummy
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Dummy command
       run: |
         ls -lart
     - uses: act10ns/slack@v2.1.0
       with:
-        channel: '#apr24_bds_int_plant_recognition'
         status: ${{ job.status }}
         steps: ${{ toJson(steps) }}
+        channel: '#apr24_bds_int_plant_recognition'
       if: always()
-
-            
