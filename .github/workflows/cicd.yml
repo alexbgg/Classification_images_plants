@@ -1,0 +1,26 @@
+name: cicd-workflow with slack integration
+on:
+  push:
+    branches: [ "master" ]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+    - uses: act10ns/slack@v2
+      with:
+        status: starting
+        channel: '#apr24_bds_int_plant_recognition'
+        message: Push code/data to the repo ...
+      if: always()
+    - uses: actions/checkout@v3
+    - name: Dummy
+      run: |
+        ls -lart
+    - uses: act10ns/slack@v2
+      with:
+        channel: '#apr24_bds_int_plant_recognition'
+        status: ${{ job.status }}
+        steps: ${{ toJson(steps) }}
+      if: always()
