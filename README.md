@@ -1,6 +1,6 @@
 # Plant Recognition
 
-This repo is a Starting Pack for DS projects. You can rearrange the structure to make it fits your project.
+This repo is a Starting Pack for DS projects. You can rearrange the structure to make it fit your project.
 
 ## Project Organization
 

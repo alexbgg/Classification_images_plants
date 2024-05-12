@@ -77,3 +77,4 @@ Your application will have to :
 # Note
 > **Special attention will be given to the form of the intermediate and final reports, they must contain illustrations, a layout, no spelling mistakes etc...**
 > **If the reports are not up to standard and delivered on time, your project will not be validated.**
+
