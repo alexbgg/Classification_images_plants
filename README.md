@@ -43,6 +43,8 @@ This repo is a Starting Pack for DS projects. You can rearrange the structure to
 ## Summary plan
 Please refer [here](Plan_summary.md)
 
+## Script
+We will use this to mount the GDrive folder.
 
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
