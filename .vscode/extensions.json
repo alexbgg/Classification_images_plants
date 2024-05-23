@@ -9,5 +9,6 @@
     "njpwerner.autodocstring",
     "streetsidesoftware.code-spell-checker",
     "charliermarsh.ruff",
+    "github.vscode-pull-request-github",
   ]
 }
