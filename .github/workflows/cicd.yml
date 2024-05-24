@@ -14,9 +14,9 @@ jobs:
         status: starting
         channel: '#apr24_bds_int_plant_recognition'
         message: |
-          Author: ${CI_COMMIT_AUTHOR}
-          Message: ${CI_COMMIT_MESSAGE}
-          See the changes here: ${CI_REPOSITORY_URL}
+          Author: ${{ github.actor }}
+          Message: ${{ github.event.head_commit.message }}
+          See the changes here: ${{ github.repository }}
       if: always()
     - name: Checkout
       uses: actions/checkout@v4
