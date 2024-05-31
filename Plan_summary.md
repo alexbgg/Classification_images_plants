@@ -5,7 +5,7 @@ The project that has been assigned to you is the following: [Plant recognition](
 - [x] Framing (Our first meeting): 29.04.2024
 
 ## Step 1
-- [ ] Data mining + DataViz’: 13.05.2024
+- [X] Data mining + DataViz’: 13.05.2024
 
 1. Your first task will be to define the context and the scope of the project: I expect you to really take the time to understand the project and to learn as much as possible about the concepts it will introduce.
 2. You will then have to take in hand and discover your dataset and make an almost exhaustive analysis of it in order to highlight the structure, the difficulties and possible biases of the dataset.
@@ -16,7 +16,7 @@ You can use this template: [Data Audit](https://drive.google.com/open?id=1BZF56p
    - A validation of the observation by data manipulation or a statistical test.
 
 ## Step 2
-- [ ] Pre-processing and feature engineering : 17.05.2024
+- [X] Pre-processing and feature engineering : 17.05.2024
 
 Following the observations made in the previous step, you will have to clean your dataset and perform the pre-processing steps.
 If necessary, you will have to transform and/or add features and enrich your dataset.
