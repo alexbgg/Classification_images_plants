@@ -29,26 +29,28 @@ After rendering 1, if not already done, I will instantiate a GitHub repo for you
 - [ ] Modeling: 14.06.2024
 
 ### Step 1:
-- [ ] 24.05.2024
+- [X] 24.05.2024
 
 1. Elaboration of the first modeling iterations with baseline models.
 2. Analyze your first results, is your approach relevant? And your model?
 
 ### Step 2:
-- [ ] 31.05.2024
+- [X] 31.05.2024
 
 1. Use Machine Learning and statistical metrics to better understand the results of your model.
 2. Optimization: Try to improve your model with optimization tools, you can try other more complex models and compare the results.
 
 ### Step 3:
-- [ ] 14.06.2024
+- [X] 14.06.2024
 
 1. Advanced modeling: Use bagging/boosting and Deep Learning techniques.
 2. Interpretation: Use the interpretability tools to better understand the results of your models.
 3. Scientific and business conclusions based on the success or failure of the modeling.
 
 ## Step 4
-- [ ] Rendering 2: Modeling report. 
+- [ ] 14.06.2024
+
+Rendering 2: Modeling report. 
 
 ## Step 5
 - [ ] Final report + codes on GitHub: 21.06.2024
