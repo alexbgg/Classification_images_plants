@@ -51,6 +51,7 @@ def populate_dataset(dataset: dict, directory: str):
                 else:
                     dataset["Healthy"].append(0)
                 dataset["Illness"].append(healthy.replace(plant + "_", ""))
+                dataset["Image_dir"].append(folder_name)
                 dataset["Image_name"].append(file_name)
                 dataset["Image_width"].append(width)
                 dataset["Image_height"].append(height)
@@ -59,7 +60,7 @@ def populate_dataset(dataset: dict, directory: str):
 
 
 # Assuming 'train' is the main directory containing all the categories
-dataset_dir = "data/New_Plant_Diseases_Dataset"
+dataset_dir = "data/raw"
 
 # Create a DataFrame with the following columns in the dataset
 # Columns name: Plant, Healthy, Illness, Image_name, Image_width, Image_height, Image_format, Image_mode
@@ -67,6 +68,7 @@ data = {
     "Plant": [],
     "Healthy": [],
     "Illness": [],
+    "Image_dir": [],
     "Image_name": [],
     "Image_width": [],
     "Image_height": [],
