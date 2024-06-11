@@ -41,7 +41,7 @@ This repo is a Starting Pack for DS projects. You can rearrange the structure to
 
 
 ## Summary plan
-Please refer [here](Plan_summary.md)
+Please refer [here](ROADMAP.md)
 
 ## Script
 We will use this to mount the GDrive folder.
