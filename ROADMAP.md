@@ -15,6 +15,8 @@ You can use this template: [Data Audit](https://drive.google.com/open?id=1BZF56p
    - A precise commentary, which analyzes the figure and provides a “business” opinion.
    - A validation of the observation by data manipulation or a statistical test.
 
+The report is [here](reports/DST_DS_Plant_Recognition_Data_Audit.pdf).
+
 ## Step 2
 - [X] Pre-processing and feature engineering : 17.05.2024
 
@@ -50,7 +52,7 @@ After rendering 1, if not already done, I will instantiate a GitHub repo for you
 ## Step 4
 - [X] 14.06.2024
 
-Rendering 2: Modeling report. 
+Rendering 2: Modeling report [here](reports/DST_DS_Plant_Recognition_Modeling__Report_2.pdf).
 
 ## Step 5
 - [ ] Final report + codes on GitHub: 21.06.2024
@@ -79,4 +81,3 @@ Your application will have to :
 # Note
 > **Special attention will be given to the form of the intermediate and final reports, they must contain illustrations, a layout, no spelling mistakes etc...**
 > **If the reports are not up to standard and delivered on time, your project will not be validated.**
-
