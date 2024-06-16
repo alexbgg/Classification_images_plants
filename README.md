@@ -1,8 +1,19 @@
-# Plant Recognition
+# apr24_bds_int_plant_recognition: Plant Recognition
 
-This repo is a Starting Pack for DS projects. You can rearrange the structure to make it fit your project.
+This project was made during the Data Scientist course of [Datascientest](https://datascientest.com/en) and used the datasets described below:
+- [PlantVillage Dataset](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset)
+- [Plant Seedlings Dataset](https://vision.eng.au.dk/plant-seedlings-dataset/)
 
-## Project Organization
+## Team
+
+- Alex Tavkhelidze - [LinkedIn](https://www.linkedin.com/in/alex-tavkhelidze-07548460/), [GitHub](https://github.com/alexbgg)
+- Arif Haidari - [LinkedIn](https://www.linkedin.com/in/arif-haidari/), [GitHub](https://github.com/arifhaidari)
+- Bernd Brinkmann - [LinkedIn](https://www.linkedin.com/in/bernd-b-6926b8144/), [GitHub](https://github.com/Bernd-Bri)
+- Luigi Menale - [LinkedIn](https://www.linkedin.com/in/lmenale/), [GitHub](https://github.com/lmenale)
+
+Coordinator Romain Lesieur
+
+## Project Organization (To be updated)
 
     ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project.
