@@ -26,7 +26,7 @@ The objective at the end of this step is to have a dataset ready to perform in-d
 After rendering 1, if not already done, I will instantiate a GitHub repo for your group, which will have to respect the template provided and be sent to the jury with the final report.
 
 ## Step 3
-- [ ] Modeling: 14.06.2024
+- [X] Modeling: 14.06.2024
 
 ### Step 1:
 - [X] 24.05.2024
@@ -48,7 +48,7 @@ After rendering 1, if not already done, I will instantiate a GitHub repo for you
 3. Scientific and business conclusions based on the success or failure of the modeling.
 
 ## Step 4
-- [ ] 14.06.2024
+- [X] 14.06.2024
 
 Rendering 2: Modeling report. 
 
