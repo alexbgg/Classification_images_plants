@@ -65,8 +65,15 @@ if __name__ == "__main__":
     # Preprocess the image
     img_array = preprocess_image(img_path, target_size=(180, 180))
 
+    # Classes name
+    class_names = model.class_names
+
     # Make a prediction
-    probability = 100 * predict(model, img_array)[0]
+    probability = predict(model, img_array).flatten()
+
+    # Apply a sigmoid since our model returns logits
+    probability = tf.nn.sigmoid(probability)
+    probability = tf.where(probability < 0.5, 0, 1)
 
     # Output the prediction
-    print("Prediction:", probability)
+    print(f"Probability array: {class_names[probability[0]]}")
