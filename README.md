@@ -6,9 +6,9 @@ This project was made during the Data Scientist course of [Datascientest](https:
 
 ## Team
 
-- Alex Tavkhelidze - [LinkedIn](https://www.linkedin.com/in/alex-tavkhelidze-07548460/), [GitHub](https://github.com/alexbgg)
+- Alex Tavkhelidze - [GitHub](https://github.com/alexbgg)
 - Arif Haidari - [LinkedIn](https://www.linkedin.com/in/arif-haidari/), [GitHub](https://github.com/arifhaidari)
-- Bernd Brinkmann - [LinkedIn](https://www.linkedin.com/in/bernd-b-6926b8144/), [GitHub](https://github.com/Bernd-Bri)
+- Bernd Brinkmann - [GitHub](https://github.com/Bernd-Bri)
 - Luigi Menale - [LinkedIn](https://www.linkedin.com/in/lmenale/), [GitHub](https://github.com/lmenale)
 
 Coordinator Romain Lesieur
