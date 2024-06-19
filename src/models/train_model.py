@@ -1,5 +1,4 @@
-import os
-
+# import os
 import tensorflow as tf
 from tensorflow.keras import layers
 from tensorflow.keras.applications import MobileNetV2
@@ -187,7 +186,8 @@ if __name__ == "__main__":
     INITIAL_EPOCHS = 10
     FINE_TUNE_EPOCHS = 10
 
-    os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+    # This line was commented cause generated a model with overfitting.
+    # os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
     # Load data
     train_ds, val_ds = load_data(DATA_DIR, IMAGE_SIZE, BATCH_SIZE)
