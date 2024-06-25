@@ -16,6 +16,7 @@ tensorflow = "^2.16.1"
 ipykernel = "^6.29.4"
 opencv-python = "^4.10.0.82"
 tensorflow-intel = {version = "^2.16.1", platform = "win32"}
+streamlit = "^1.36.0"
 
 
 [build-system]
