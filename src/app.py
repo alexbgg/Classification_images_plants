@@ -45,7 +45,7 @@ PAGES = {
 
 if __name__ == "__main__":
     # Setup page configuration
-    st.set_page_config(page_title="Plant recognition apr24", layout="wide", page_icon="🩸")
+    st.set_page_config(page_title="Plant recognition apr24", layout="wide", page_icon="🍃")
 
     # Apply the CSS to hide sidebar navigation
     hide_sidebar_navigation()
