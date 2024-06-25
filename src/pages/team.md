@@ -1,1 +1,25 @@
+![Image](https://th.bing.com/th/id/OIG3.5ug1KPQdm0oRE9CuYklx?pid=ImgGn "Image")
+
 # Team
+
+### Contributors
+
+    Alex Tavkhelidze
+
+    Arif Haidari
+
+    Bernd Brinkmann
+
+    Luigi Menale
+
+### Image references
+
+   *White blood cells identification system based on convolutional deep .... https://pubmed.ncbi.nlm.nih.gov/29173802/. *  
+   
+   *Hematopoiesis (human) - [wikipedia](https://fr.wikipedia.org/wiki/Fichier:Hematopoiesis_(human)_diagram.png)*  
+   
+   *Transformers for Image Recognition at Scale [Google AI blog](https://ai.googleblog.com/2020/12/transformers-for-image-recognition-at.html)*
+   
+   *Neural Abstractive Text Summarization and Fake News Detection https://arxiv.org/abs/1904.00788*  
+
+   *The Ontogeny of a Neutrophil: Mechanisms of Granulopoiesis and Homeostasis. DOI: https://doi.org/10.1128/MMBR.00057-17*
