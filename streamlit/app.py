@@ -1,7 +1,6 @@
-import web.img
-
 import streamlit as st
-from pages.model import prediction
+import web.img
+from pages.prediction_page import prediction_home
 
 
 def hide_sidebar_navigation():
@@ -50,7 +49,7 @@ if __name__ == "__main__":
         "LeNet": "pages/lenet.md",
         "Transfer Learning": "pages/transfer_learning.md",
         "Interpretability": "pages/interpretability.md",
-        "Prediction": prediction,
+        "Prediction": prediction_home,
         "Summary": "pages/summary.md",
         "Team": "pages/team.md",
     }
@@ -64,7 +63,9 @@ if __name__ == "__main__":
     hide_sidebar_navigation()
 
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio("Select a page:", list(PAGES.keys()), label_visibility="collapsed")
+    selection = st.sidebar.radio(
+        "Select a page:", list(PAGES.keys()), label_visibility="collapsed"
+    )
 
     # Render the content of the selected page
     page_content_or_func = PAGES[selection]
