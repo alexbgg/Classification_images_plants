@@ -1,4 +1,5 @@
 import base64
+import time
 import os
 import re
 from pathlib import Path
@@ -157,6 +158,26 @@ def upload_image() -> Tuple[BinaryIO, bool]:
     return img_file, image_present
 
 
+def load_model_with_progress(model_path) -> tf.keras.Model:
+    # Create a progress bar
+    progress_bar = st.progress(0)
+
+    # Simulate a loading process with incremental updates
+    for i in range(100):
+        # Update progress bar
+        time.sleep(0.1)  # Simulate some aspect of loading
+        progress_bar.progress(i + 1)
+    
+    # Load your model (assuming the model is saved in the same directory)
+    model = tf.keras.models.load_model(model_path)
+    
+    # Complete the progress bar
+    progress_bar.progress(100)
+    progress_bar.empty()
+    
+    return model
+
+
 ########################################################################### Modelization part ###########################################################################
 
 
@@ -180,21 +201,6 @@ def preprocess_image(img_path: str, target_size: tuple) -> np.array:
     return img_array
 
 
-def load_trained_model(model_path: str) -> tf.keras.Model:
-    """
-    Load a trained Keras model from the specified path.
-
-    Parameters:
-    - model_path (str): The path to the stored Keras model file.
-
-    Returns:
-    - model: The loaded Keras model.
-    """
-    model = tf.keras.models.load_model(model_path)
-
-    return model
-
-
 def predict(model: tf.keras.Model, img_array: np.array) -> np.array:
     """
     Predict the class of an image using the loaded model.
@@ -209,15 +215,3 @@ def predict(model: tf.keras.Model, img_array: np.array) -> np.array:
     prediction = model.predict(img_array)
 
     return prediction
-
-
-def load_champ_model() -> tf.keras.Model:
-    """
-    Load and return a pre-trained model.
-
-    Returns:
-        tf.keras.Model: The loaded pre-trained model.
-    """
-    model = load_trained_model("../models/TL_180px_32b_20e_model.keras")
-
-    return model

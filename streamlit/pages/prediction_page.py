@@ -7,32 +7,18 @@ import streamlit as st
 
 def model_selection(model_list, selected_model):
     model_file = model_list[selected_model]
+
     st.write(f"Loading model: {model_file}")
-    # Imagine a function `load_model` that actually loads the model
-    # model = load_model(model_file)
+    model = utils.load_model_with_progress("../models/" + model_file)
+
     st.success(f"Model {selected_model} loaded successfully!")
     st.write("Now you can use the model for predictions or further analysis:")
-    # Here you could add interactive components that use the loaded model
-
-    # if model_choice:
-    #     with st.spinner(f"Loading content for {model_choice}..."):
-    #         time.sleep(2)  # Simulates a delay for loading content
-
-    #         st.success("Done!")
-    #         st.subheader(f"Details for {model_choice}")
-    #         st.write(f"Here is more detailed information about {model_choice}.")
-    # else:
-    #     st.info("Please select an option above to display related content.")
-
-    # model = load_champ_model()
 
     st.write("")
     st.subheader("Upload an image")
     st.markdown("*Note: please don't expect too much and don't load strange image.*")
 
-    c1, _, _ = st.columns(3)
-    with c1:
-        image, image_valid = utils.upload_image()
+    image, image_valid = utils.upload_image()
 
     img_info = Image.open(image)
     file_details = f"""
@@ -102,10 +88,12 @@ def prediction_home():
     st.header("Prediction 🍃")
     st.subheader("1. Choose which model you want to use for prediction")
 
-    selected_model = st.selectbox('Select a model to load:', 
+    csb1, _, _ = st.columns(3)
+    with csb1:
+        selected_model = st.selectbox('Select a model to load:', 
                                   ['Please select a model...'] + list(model_list.keys()),
                                   key="model_select_box")
 
-    # Conditional content based on the selection
-    if selected_model != 'Please select a model...':
-        model_selection(model_list, selected_model)
+        # Conditional content based on the selection
+        if selected_model != 'Please select a model...':
+            model_selection(model_list, selected_model)
