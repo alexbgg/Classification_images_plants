@@ -1,5 +1,10 @@
+from typing import BinaryIO, Tuple
+
 import numpy as np
 import tensorflow as tf
+from PIL import Image
+
+import streamlit as st
 
 
 def load_trained_model(model_path: str) -> tf.keras.Model:
@@ -29,7 +34,7 @@ def preprocess_image(img_path: str, target_size: tuple) -> np.array:
     - img_array (np.array): Preprocessed image array.
     """
     img = tf.keras.preprocessing.image.load_img(img_path, target_size=target_size)
-    img_array = tf.keras.preprocessing.image.img_to_array(img)/255
+    img_array = tf.keras.preprocessing.image.img_to_array(img) / 255
     img_array = np.expand_dims(
         img_array, axis=0
     )  # Model expects batches, so expand dimensions
@@ -53,6 +58,85 @@ def predict(model: tf.keras.Model, img_array: np.array) -> np.array:
     return prediction
 
 
+def load_champ_model() -> tf.keras.Model:
+    """
+    Load and return a pre-trained model.
+
+    Returns:
+        tf.keras.Model: The loaded pre-trained model.
+    """
+    model = load_trained_model("../models/TL_180px_32b_20e_model.keras")
+
+    return model
+
+
+def upload_image() -> Tuple[BinaryIO, bool]:
+    """
+    Uploads an image for classification.
+
+    Returns:
+        A tuple containing the uploaded image file and a boolean indicating whether an image was uploaded or not.
+    """
+    image_present = True
+
+    img_file = st.file_uploader(
+        "*Upload an image for classification*",
+        type=["jpg", "png"],
+    )
+
+    if img_file is None:
+        image_present = False
+        img_file = open("web/img/no_image_plant.jpg", "rb")
+
+    return img_file, image_present
+
+
+def prediction_home():
+    """
+    Function to perform image prediction and display results.
+
+    Returns:
+        None
+    """
+
+    st.header("Prediction 🍃")
+
+    model = load_champ_model()
+
+    st.write("")
+    st.subheader("Upload an image")
+    st.markdown("*Note: please don't expect too much and don't load strange image.*")
+
+    c1, _, _ = st.columns(3)
+    with c1:
+        image, image_valid = upload_image()
+
+    img_info = Image.open(image)
+    file_details = f"""
+        Name: {image.name}
+        Type: {img_info.format}
+        Size: {img_info.size}
+    """
+
+    st.write("")
+    st.subheader("Results")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("Original image ...")
+
+        st.image(img_info, width=150)
+        if image_valid:
+            st.caption(file_details)
+
+    with col2:
+        with st.container():
+            st.subheader("... is probably :")
+
+            # Add here the prediction model result.
+
+
+"""
 if __name__ == "__main__":
     # Path to the saved model and the image
     model_path = "models/TL_180px_32b_20e_model.keras"
@@ -77,3 +161,4 @@ if __name__ == "__main__":
 
     # Output the prediction
     print(f"Probability array: {class_names[probability[0]]}")
+"""
