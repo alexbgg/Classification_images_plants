@@ -1,1 +1,64 @@
 # LeNet 🍃
+### About LeNet
+- LeNet was introduced in the DataScientest modules _151.2 - Convolutional Neural Networks with Keras (EN)_ and _155 - Tensorflow (EN)_
+- First model with which we successfully scaled-up to the full dataset of 51 classes with ~61K images
+- Very acceptable result and fitting time right from start: F1-Score > 80%, less than 60 minutes on standard laptop for model training
+- Brief overview and comparison of LeNet: https://sh-tsang.medium.com/paper-brief-review-of-lenet-1-lenet-4-lenet-5-boosted-lenet-4-image-classification-1f5f809dbf17
+
+### Trials to further improve F1-Score and to address overfitting
+- Converting to alternative image sizes at loading (between 32x32 and 256x256)
+- Modified batch sizes for training (between 32 and 256)
+- Adding more dropout layers (note: initial model already had one dropout layer)
+- Adusting dropout rate for existing dropout layer (between 0.2 and 0.5)
+- Applying L2 weight regularization (on one and on three layers)
+- Adjusting class-weights for classes with low representation
+- Using augmentation to generate additional images: This didn't improve the F1-Score but indeed reduced overfitting
+
+Also see https://www.tensorflow.org/tutorials/keras/overfit_and_underfit
+
+### Setup after tuning
+Final setup chosen after finishing trials:
+- Splitting dataset into training (80%), validation (16%) and test (4%)
+- Model was trained using datasets for training and validation. Testing dataset was kept separate and only used for evaluation
+- Images were converted to 64 x 64 x 3 at loading
+- Batch size of 32
+- Callbacks applied for adjusting the learning rate when reaching a plateau and early stopping
+- Model finalized training after 73 epochs (33s per epoch, 40 min in total)
+- F1-Score on the test dataset >92%
+
+### Technical summary of model
+<details>
+  <summary>Technical summary of model</summary>
+  <div align="left">
+  ![Technical summary of model](web/img/lenet_model.png)
+  </div>
+</details>
+<br>
+
+### Results
+<details>
+  <summary>Training and validation accuracy + loss</summary>
+  <div align="left">
+  ![Training and validation accuracy + loss](web/img/lenet_history.png)
+  </div>
+</details>
+<br>
+<details>
+  <summary>F1-Score in relation to observations by class for test dataset</summary>
+  <div align="left">
+  ![F1-Score in relation to observations by class for test dataset](web/img/lenet_f1-score.png)
+  </div>
+</details>
+<br>
+<details>
+  <summary>Confusion matrix for test dataset</summary>
+  <div align="left">
+  ![Confusion matrix for test dataset](web/img/lenet_cm.png)
+  </div>
+</details>
+<br>
+
+### Conclusion
+Our LeNet performed really well with reaching an F1-Score >92% with reasonable fitting time!
+
+**However it wasn't selected as final model as we were able to still do better...**
