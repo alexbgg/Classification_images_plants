@@ -12,7 +12,7 @@
 > > 
 > > Arif Haidari - [LinkedIn](https://www.linkedin.com/in/arif-haidari/), [GitHub](https://github.com/arifhaidari)
 > > 
-> > Bernd Brinkmann - [GitHub](https://github.com/Bernd-Bri)
+> > Bernd Brinkmann
 > > 
 > > Luigi Menale - [LinkedIn](https://www.linkedin.com/in/lmenale/), [GitHub](https://github.com/lmenale)
 
