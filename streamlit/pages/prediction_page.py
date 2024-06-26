@@ -1,18 +1,28 @@
+import time
+
 import utils
 from PIL import Image
 
 import streamlit as st
 
+def model_selection(model_list, selected_model):
+    model_file = model_list[selected_model]
+    st.write(f"Loading model: {model_file}")
+    # Imagine a function `load_model` that actually loads the model
+    # model = load_model(model_file)
+    st.success(f"Model {selected_model} loaded successfully!")
+    st.write("Now you can use the model for predictions or further analysis:")
+    # Here you could add interactive components that use the loaded model
 
-def prediction_home():
-    """
-    Function to perform image prediction and display results.
+    # if model_choice:
+    #     with st.spinner(f"Loading content for {model_choice}..."):
+    #         time.sleep(2)  # Simulates a delay for loading content
 
-    Returns:
-        None
-    """
-
-    st.header("Prediction 🍃")
+    #         st.success("Done!")
+    #         st.subheader(f"Details for {model_choice}")
+    #         st.write(f"Here is more detailed information about {model_choice}.")
+    # else:
+    #     st.info("Please select an option above to display related content.")
 
     # model = load_champ_model()
 
@@ -48,7 +58,6 @@ def prediction_home():
 
             # Add here the prediction model result.
 
-
 """
 if __name__ == "__main__":
     # Path to the saved model and the image
@@ -75,3 +84,28 @@ if __name__ == "__main__":
     # Output the prediction
     print(f"Probability array: {class_names[probability[0]]}")
 """
+
+
+def prediction_home():
+    """
+    Function to perform image prediction and display results.
+
+    Returns:
+        None
+    """
+    model_list = {
+        "Transfer Learning": "TL_180px_32b_20e_model.keras",
+        "LeNet": "Lenet_64px_32b-200e-model.keras",
+        "Augmented LeNet": "AuLexNet5_128px_gray_32b_100e_model.keras",
+    }
+
+    st.header("Prediction 🍃")
+    st.subheader("1. Choose which model you want to use for prediction")
+
+    selected_model = st.selectbox('Select a model to load:', 
+                                  ['Please select a model...'] + list(model_list.keys()),
+                                  key="model_select_box")
+
+    # Conditional content based on the selection
+    if selected_model != 'Please select a model...':
+        model_selection(model_list, selected_model)

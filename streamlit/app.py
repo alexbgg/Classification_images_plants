@@ -17,17 +17,13 @@ if __name__ == "__main__":
     }
 
     # Setup page configuration
-    st.set_page_config(
-        page_title="Plant recognition apr24", layout="wide", page_icon="🍃"
-    )
+    st.set_page_config(page_title="Plant recognition apr24", layout="wide", page_icon="🍃")
 
     # Apply the CSS to hide sidebar navigation
     utils.hide_sidebar_navigation()
 
     st.sidebar.title("Navigation")
-    selection = st.sidebar.radio(
-        "Select a page:", list(PAGES.keys()), label_visibility="collapsed"
-    )
+    selection = st.sidebar.radio("Select a page:", options=list(PAGES.keys()), label_visibility="collapsed", key="nav_radio_box")
 
     # Render the content of the selected page
     page_content_or_func = PAGES[selection]
