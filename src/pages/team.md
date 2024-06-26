@@ -1,6 +1,6 @@
 ![Image](https://th.bing.com/th/id/OIG3.5ug1KPQdm0oRE9CuYklx?pid=ImgGn "Image")
 
-# Team
+# Team 🍃
 
 ### Contributors
 
