@@ -101,7 +101,7 @@ def prediction_home():
 
     st.header("Prediction 🍃")
 
-    model = load_champ_model()
+    # model = load_champ_model()
 
     st.write("")
     st.subheader("Upload an image")

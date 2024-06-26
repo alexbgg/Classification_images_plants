@@ -1,4 +1,8 @@
-![Image](https://th.bing.com/th/id/OIG3.5ug1KPQdm0oRE9CuYklx?pid=ImgGn "Image")
+![Image](web/img/github_leafs.jpg "Image Title")
+
+<br>
+<p>
+<br>
 
 # Team 🍃
 
@@ -12,7 +16,7 @@
 > > 
 > > Luigi Menale - [LinkedIn](https://www.linkedin.com/in/lmenale/), [GitHub](https://github.com/lmenale)
 
-<p></p>
+<br>
 
 ### Image references
 
