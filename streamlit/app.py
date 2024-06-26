@@ -1,57 +1,19 @@
-import streamlit as st
-import web.img
+import utils
 from pages.prediction_page import prediction_home
 
-
-def hide_sidebar_navigation():
-    """
-    Hides the sidebar navigation in the Streamlit app.
-
-    This function adds a CSS style to hide the sidebar navigation in the Streamlit app.
-
-    Parameters:
-    None
-
-    Returns:
-    None
-    """
-    hide_style = """
-        <style>
-        /* Hide the sidebar title */
-        div[data-testid="stSidebarNav"] {
-            display: none;
-        }
-        </style>
-    """
-    st.markdown(hide_style, unsafe_allow_html=True)
-
-
-def read_markdown_file(markdown_file):
-    """
-    Reads the content of a markdown file.
-
-    Args:
-        markdown_file (str): The path to the markdown file.
-
-    Returns:
-        str: The content of the markdown file.
-    """
-    with open(markdown_file, "r", encoding="utf-8") as file:
-        content = file.read()
-    return content
-
+import streamlit as st
 
 if __name__ == "__main__":
     PAGES = {
-        "Introduction": "pages/intro.md",
-        "Data Analysis": "pages/data_analysis.md",
-        "Machine Learning": "pages/machine_learning.md",
-        "LeNet": "pages/lenet.md",
-        "Transfer Learning": "pages/transfer_learning.md",
-        "Interpretability": "pages/interpretability.md",
+        "Introduction": "web/intro.md",
+        "Data Analysis": "web/data_analysis.md",
+        "Machine Learning": "web/machine_learning.md",
+        "LeNet": "web/lenet.md",
+        "Transfer Learning": "web/transfer_learning.md",
+        "Interpretability": "web/interpretability.md",
         "Prediction": prediction_home,
-        "Summary": "pages/summary.md",
-        "Team": "pages/team.md",
+        "Summary": "web/summary.md",
+        "Team": "web/team.md",
     }
 
     # Setup page configuration
@@ -60,7 +22,7 @@ if __name__ == "__main__":
     )
 
     # Apply the CSS to hide sidebar navigation
-    hide_sidebar_navigation()
+    utils.hide_sidebar_navigation()
 
     st.sidebar.title("Navigation")
     selection = st.sidebar.radio(
@@ -74,7 +36,7 @@ if __name__ == "__main__":
     if callable(page_content_or_func):
         page_content_or_func()
     else:
-        content = read_markdown_file(page_content_or_func)
+        content = utils.read_markdown_file(page_content_or_func)
         st.markdown(content, unsafe_allow_html=True)
 
     st.sidebar.title("Team")
