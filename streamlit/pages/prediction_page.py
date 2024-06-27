@@ -1,4 +1,5 @@
 import time
+from tkinter import HIDDEN
 
 import utils
 from PIL import Image
@@ -59,14 +60,13 @@ def prediction_home():
         st.session_state.model_value = None
 
     st.header("Prediction 🍃")
-    st.subheader("1. Choose which model you want to use for prediction")
+    st.subheader("1. Choose which model you want to use for")
 
     csb1, _, _ = st.columns(3)
     with csb1:
-        selected_model = st.selectbox(
-            "Select a model to load:",
+        selected_model = st.selectbox("Select a model to load:",
             ["Please select a model..."] + list(model_list.keys()),
-            key="model_select_box",
+            key="model_select_box", label_visibility=HIDDEN
         )
 
         # Conditional content based on the selection
@@ -87,7 +87,7 @@ def prediction_home():
 
             st.write("")
             st.subheader("Upload an image")
-            st.markdown("*Note: please don't expect too much and don't load strange image.*")
+            st.markdown("*Note: to pursue a purposeful usage, do not load impractical images.*")
 
             image, image_valid = utils.upload_image()
             st.session_state.previous_up_img_value = image_valid
