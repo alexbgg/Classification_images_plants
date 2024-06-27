@@ -17,7 +17,7 @@ After different trials and configurations, we settled on the following setup:
 - Additionally, the fine-tuning process spanned 10 epochs, with each epoch approximately taking 17 minutes, culminating in a total training time of around 3 hours.
 - Achieved an F1-Score exceeding 94% on the test dataset, a testament to the model's robustness and efficiency.
 
-### Detailed Insights and Visual Summaries
+### Detailed Insights
 <details>
   <summary>Technical Overview of MobileNetV2</summary>
   <div align="left">
@@ -34,6 +34,15 @@ After different trials and configurations, we settled on the following setup:
 <br>
 
 <details>
+  <summary>Technical Overview of Transfer Learning model</summary>
+  <div align="left">
+  ![Technical Overview of MobileNetV2 part 1](web/img/tl_model_complete.png)
+  </div>
+</details>
+<br>
+
+### Summaries
+<details>
   <summary>Training and Validation Accuracy + Loss Graphs</summary>
   <div align="left">
   ![Accuracy and Loss Over Epochs](web/img/tl_accloss.png)
@@ -44,10 +53,18 @@ After different trials and configurations, we settled on the following setup:
 <details>
   <summary>F1-Score Distribution Across Classes for the Test Dataset</summary>
   <div align="left">
-  ![F1-Score by Class](web/img/mobilenetv2_f1-score.png)
+  ![F1-Score by Class](web/img/tl_f1_score.png)
+  </div>
+</details>
+<br>
+
+<details>
+  <summary>Confusion matrix for Test Dataset</summary>
+  <div align="left">
+  ![Confusion Matrix](web/img/tl_conf_matrix.png)
   </div>
 </details>
 <br>
 
 ### Conclusion
-MobileNetV2 not only met but exceeded our performance expectations with an F1-Score over 97%.
+MobileNetV2 not only met but exceeded our performance expectations with an F1-Score over 97% maybe 98% :smiley:.
