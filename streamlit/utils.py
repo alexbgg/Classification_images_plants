@@ -249,8 +249,10 @@ def preprocess_image(pil_image: str, data: object) -> np.array:
     - image_array (np.array): Preprocessed image array.
     """
     # Convert to RGB if it's not already
-    if pil_image.mode != data["color_mode"]:
+    if data["color_mode"] == "RGB":
         pil_image = pil_image.convert('RGB')
+    else:
+        pil_image = pil_image.convert('L')
 
     # Resize the image
     target_size = data["target_size"]
