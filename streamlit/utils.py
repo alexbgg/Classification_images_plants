@@ -193,10 +193,6 @@ def preprocess_image(img_path: str, target_size: tuple) -> np.array:
     - img_array (np.array): Preprocessed image array.
     """
     img = tf.keras.preprocessing.image.load_img(img_path, target_size=target_size)
-    img_array = tf.keras.preprocessing.image.img_to_array(img) / 255
-    img_array = np.expand_dims(
-        img_array, axis=0
-    )  # Model expects batches, so expand dimensions
 
     return img_array
 

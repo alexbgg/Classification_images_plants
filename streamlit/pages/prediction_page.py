@@ -45,15 +45,6 @@ def model_selection(model_list, selected_model):
             # Add here the prediction model result.
 
 """
-if __name__ == "__main__":
-    # Path to the saved model and the image
-    model_path = "models/TL_180px_32b_20e_model.keras"
-    # model_path = "models/lume_models.keras"
-    img_path = "data/raw/Orange___Citrus_greening/image (100).jpg"
-
-    # Load the model
-    model = load_trained_model(model_path)
-
     # Preprocess the image
     img_array = preprocess_image(img_path, target_size=(180, 180))
 
