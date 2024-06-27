@@ -237,7 +237,7 @@ def load_model_with_progress(model_path) -> tf.keras.Model:
 ########################################################################### Modelization part ###########################################################################
 
 
-def preprocess_image(pil_image: str, image_size: int) -> np.array:
+def preprocess_image(pil_image: str, data: object) -> np.array:
     """
     Load and preprocess an image to be suitable for model prediction.
 
@@ -249,14 +249,14 @@ def preprocess_image(pil_image: str, image_size: int) -> np.array:
     - image_array (np.array): Preprocessed image array.
     """
     # Convert to RGB if it's not already
-    if pil_image.mode != 'RGB':
+    if pil_image.mode != data["color_mode"]:
         pil_image = pil_image.convert('RGB')
 
     # Resize the image
-    target_size = (180, 180)
+    target_size = data["target_size"]
     interpolation = Image.BILINEAR  # PIL interpolation methods
 
-    keep_aspect_ratio = False
+    keep_aspect_ratio = data["keep_aspect_ratio"]
 
     if not keep_aspect_ratio:
         resized_image = pil_image.resize(target_size, interpolation)
@@ -272,14 +272,6 @@ def preprocess_image(pil_image: str, image_size: int) -> np.array:
 
     # Add a batch dimension if required (model expects batched input)
     image_array = tf.expand_dims(image_array, axis=0)
-
-    # Convert the PIL image to a NumPy array
-    # image_array = np.array(pil_image)
-    # img_height = image_size
-    # img_width = image_size
-    # img = tf.keras.utils.load_img(image_array, target_size=(img_height, img_width))
-    # img_array = tf.keras.utils.img_to_array(img)
-    # img_array = tf.expand_dims(img_array, 0) # Create a batch
 
     return image_array
 
