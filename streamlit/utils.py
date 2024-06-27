@@ -4,11 +4,66 @@ import os
 import re
 from pathlib import Path
 from typing import BinaryIO, Tuple
-
+from PIL import Image
 import numpy as np
 import tensorflow as tf
 
 import streamlit as st
+
+
+class_names = [
+    "Apple___Apple_scab",
+    "Apple___Black_rot",
+    "Apple___Cedar_apple_rust",
+    "Apple___healthy",
+    "Background_without_leaves",
+    "Black-grass",
+    "Blueberry___healthy",
+    "Charlock",
+    "Cherry___Powdery_mildew",
+    "Cherry___healthy",
+    "Cleavers",
+    "Common Chickweed",
+    "Common wheat",
+    "Corn___Cercospora_leaf_spot Gray_leaf_spot",
+    "Corn___Common_rust",
+    "Corn___Northern_Leaf_Blight",
+    "Corn___healthy",
+    "Fat Hen",
+    "Grape___Black_rot",
+    "Grape___Esca_(Black_Measles)",
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "Grape___healthy",
+    "Loose Silky-bent",
+    "Maize",
+    "Orange___Haunglongbing_(Citrus_greening)",
+    "Peach___Bacterial_spot",
+    "Peach___healthy",
+    "Pepper,_bell___Bacterial_spot",
+    "Pepper,_bell___healthy",
+    "Potato___Early_blight",
+    "Potato___Late_blight",
+    "Potato___healthy",
+    "Raspberry___healthy",
+    "Scentless Mayweed",
+    "Shepherds Purse",
+    "Small-flowered Cranesbill",
+    "Soybean___healthy",
+    "Squash___Powdery_mildew",
+    "Strawberry___Leaf_scorch",
+    "Strawberry___healthy",
+    "Sugar beet",
+    "Tomato___Bacterial_spot",
+    "Tomato___Early_blight",
+    "Tomato___Late_blight",
+    "Tomato___Leaf_Mold",
+    "Tomato___Septoria_leaf_spot",
+    "Tomato___Spider_mites Two-spotted_spider_mite",
+    "Tomato___Target_Spot",
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "Tomato___Tomato_mosaic_virus",
+    "Tomato___healthy",
+]
 
 
 ########################################################################### Presentation part ###########################################################################
@@ -149,6 +204,7 @@ def upload_image() -> Tuple[BinaryIO, bool]:
     img_file = st.file_uploader(
         "*Upload an image for classification*",
         type=["jpg", "png"],
+        key=True
     )
 
     if img_file is None:
@@ -181,7 +237,7 @@ def load_model_with_progress(model_path) -> tf.keras.Model:
 ########################################################################### Modelization part ###########################################################################
 
 
-def preprocess_image(img_path: str, target_size: tuple) -> np.array:
+def preprocess_image(pil_image: str, image_size: int) -> np.array:
     """
     Load and preprocess an image to be suitable for model prediction.
 
@@ -190,14 +246,45 @@ def preprocess_image(img_path: str, target_size: tuple) -> np.array:
     - target_size (tuple): The target size of the image (height, width).
 
     Returns:
-    - img_array (np.array): Preprocessed image array.
+    - image_array (np.array): Preprocessed image array.
     """
-    img = tf.keras.preprocessing.image.load_img(img_path, target_size=target_size)
+    # Convert to RGB if it's not already
+    if pil_image.mode != 'RGB':
+        pil_image = pil_image.convert('RGB')
 
-    return img_array
+    # Resize the image
+    target_size = (180, 180)
+    interpolation = Image.BILINEAR  # PIL interpolation methods
+
+    keep_aspect_ratio = False
+
+    if not keep_aspect_ratio:
+        resized_image = pil_image.resize(target_size, interpolation)
+    else:
+        # Optionally handle aspect ratio if needed (manual implementation required)
+        resized_image = pil_image  # Placeholder for actual aspect ratio handling
+
+    # Convert to a NumPy array
+    image_array = np.array(resized_image)
+
+    # Ensure the image is in the expected shape (height, width, channels)
+    image_array = tf.convert_to_tensor(image_array, dtype=tf.float32)
+
+    # Add a batch dimension if required (model expects batched input)
+    image_array = tf.expand_dims(image_array, axis=0)
+
+    # Convert the PIL image to a NumPy array
+    # image_array = np.array(pil_image)
+    # img_height = image_size
+    # img_width = image_size
+    # img = tf.keras.utils.load_img(image_array, target_size=(img_height, img_width))
+    # img_array = tf.keras.utils.img_to_array(img)
+    # img_array = tf.expand_dims(img_array, 0) # Create a batch
+
+    return image_array
 
 
-def predict(model: tf.keras.Model, img_array: np.array) -> np.array:
+def predict(model: tf.keras.Model, image_array: np.array) -> np.array:
     """
     Predict the class of an image using the loaded model.
 
@@ -208,6 +295,9 @@ def predict(model: tf.keras.Model, img_array: np.array) -> np.array:
     Returns:
     - prediction: The predicted result.
     """
-    prediction = model.predict(img_array)
+    # prediction = model.predict(image_array)
+    predicted_classes = np.array([])
+    predicted_classes = np.concatenate([predicted_classes, np.argmax(model(image_array, training=False), axis = -1)]).astype(int)
+    c_predicted_class = np.array(class_names)[predicted_classes]
 
-    return prediction
+    return c_predicted_class
