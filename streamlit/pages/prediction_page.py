@@ -1,16 +1,27 @@
 import time
-
 import utils
 from PIL import Image
-
 import streamlit as st
 
+# packages imported by Arif
+import numpy as np
+from skimage.feature import hog
+import pickle
+import cv2
+
+
 def model_selection(model_list, selected_model):
+
     model_file = model_list[selected_model]
-
-    st.write(f"Loading model: {model_file}")
-    model = utils.load_model_with_progress("../models/" + model_file)
-
+    # Code provide by Arif
+    model = None
+    if selected_model == "Machine Learning (XGBClassifier)":
+        model = load_traditional_model("../models/" + model_file)
+    else:
+        model = utils.load_model_with_progress("../models/" + model_file)
+    
+    print('value of model')
+    print(model)
     st.success(f"Model {selected_model} loaded successfully!")
     st.write("Now you can use the model for predictions or further analysis:")
 
@@ -43,6 +54,13 @@ def model_selection(model_list, selected_model):
             st.subheader("... is probably :")
 
             # Add here the prediction model result.
+            # Code provided by Arif
+            if selected_model == "Machine Learning (XGBClassifier)":
+                result = traditional_ml_predict(model, image)
+            else:
+                result = 'Deep Learning model goes here'
+            
+            st.write(result)
 
 """
     # Preprocess the image
@@ -74,6 +92,7 @@ def prediction_home():
         "Transfer Learning": "TL_180px_32b_20e_model.keras",
         "LeNet": "Lenet_64px_32b-200e-model.keras",
         "Augmented LeNet": "AuLexNet5_128px_gray_32b_100e_model.keras",
+        "Machine Learning (XGBClassifier)": "xgboost_model.pkl",
     }
 
     st.header("Prediction 🍃")
@@ -88,3 +107,53 @@ def prediction_home():
         # Conditional content based on the selection
         if selected_model != 'Please select a model...':
             model_selection(model_list, selected_model)
+
+
+########################### code provided by Arif ######################################
+
+def load_traditional_model(model_path):
+    # Load the traditional machine learning model using pickle
+    try:
+        with open(model_path, 'rb') as model_file:
+            model = pickle.load(model_file)
+        return model
+    except ModuleNotFoundError as e:
+        st.error(f"Error loading model: {e}")
+        st.stop()
+
+def traditional_ml_predict(model, image):
+    # Convert PIL Image to an OpenCV image
+    image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+    image = cv2.resize(image, (256, 256))
+    # Extract features
+    test_features = extract_hog_color_hist_features(image)
+    test_features_reshaped = test_features.reshape(1, -1)
+    # Predict with loaded model
+    predicted_label = model.predict(test_features_reshaped)[0]
+    indices_dict = {
+        0: 'Apple___Apple_scab',
+        1: 'Apple___Black_rot',
+        2: 'Apple___Cedar_apple_rust',
+        3: 'Apple___healthy'
+    }
+    predicted_class = indices_dict[predicted_label]
+    return f"Predicted class: {predicted_class}"
+
+
+# Function to extract combined HOG and color histogram features
+def extract_hog_color_hist_features(image, resize=(256, 256)):
+    image = cv2.resize(image, resize)
+    # Extract HOG features
+    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    hog_features = hog(gray_image, orientations=9, pixels_per_cell=(8, 8),
+                       cells_per_block=(2, 2), block_norm='L2-Hys', visualize=False)
+
+    # Extract color histogram features
+    hist = cv2.calcHist([image], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
+    hist = cv2.normalize(hist, hist).flatten()
+
+    # Combine HOG and color histogram features
+    combined_features = np.hstack((hog_features, hist))
+    return combined_features
+
+########################### code provided by Arif ######################################
