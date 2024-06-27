@@ -25,6 +25,9 @@ After different trials and configurations, we settled on the following setup:
   <br>
   ![Technical Overview of MobileNetV2 part 2](web/img/tl_model_2.png)
   <br>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
   ![Technical Overview of MobileNetV2 part 3](web/img/tl_model_3.png)
   </div>
 </details>
