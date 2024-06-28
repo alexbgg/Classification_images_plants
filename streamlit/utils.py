@@ -11,7 +11,7 @@ import streamlit as st
 
 # packages imported for classical model
 from skimage.feature import hog
-import pickle
+import xgboost as xgb
 import cv2
 
 
@@ -84,12 +84,12 @@ def load_classical_model(model_path):
         progress_bar.progress(i + 1)
 
     try:
-        with open(model_path, 'rb') as model_file:
-            model = pickle.load(model_file)
+        model = xgb.Booster()
+        model.load_model(model_path)
 
-            # Complete the progress bar
-            progress_bar.progress(100)
-            progress_bar.empty()
+        # Complete the progress bar
+        progress_bar.progress(100)
+        progress_bar.empty()
 
         return model
     except ModuleNotFoundError as e:
@@ -104,6 +104,7 @@ def classical_ml_predict(model, image):
     # Extract features
     test_features = extract_hog_color_hist_features(image)
     test_features_reshaped = test_features.reshape(1, -1)
+    test_features_reshaped = xgb.DMatrix(test_features_reshaped)
     # Predict with loaded model
     predicted_label = model.predict(test_features_reshaped)[0]
     indices_dict = {

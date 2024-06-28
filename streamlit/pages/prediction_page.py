@@ -34,7 +34,7 @@ alex = {
 
 # Configuration for the classical machine learning model
 arif = {
-    "model_name": "xgboost_model.pkl",
+    "model_name": "xgboost_model.json",
 }
 
 # Mapping model types to their configurations
