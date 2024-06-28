@@ -2,7 +2,7 @@
 
 ## Dataset
 The data used in this project has been retrieved from the following sources:
-- [The Plant Seedlings Dataset](https://vision.eng.au.dk/plant-seedlings-dataset/)
+- The Plant Seedlings Dataset - Ref #1
 
 This dataset contains images of very young plants (seedlings). It has around 5.5K images that represent 12 classes.
 
@@ -12,7 +12,7 @@ This dataset contains images of very young plants (seedlings). It has around 5.5
 Figure 1: Representative image of the dataset [seedling of the plant species “Cleavers”]
 </div>
 
-- [The PlantVillage Dataset](https://data.mendeley.com/datasets/tywbtsjrjv/1)
+- The PlantVillage Dataset - Ref #2
 
 This dataset contains images of the leaves for grown-up plants. It has around 55.5K images. The dataset contains healthy plants but also plants with diseases.
 
