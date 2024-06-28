@@ -113,7 +113,8 @@ def classical_ml_predict(model, image):
         3: 'Apple___healthy'
     }
     predicted_class = indices_dict[predicted_label]
-    return f"Predicted class: {predicted_class}"
+    
+    return predicted_class
 
 # Function to extract combined HOG and color histogram features
 
