@@ -74,9 +74,23 @@ class_names = [
 
 def load_classical_model(model_path):
     # Load the classical machine learning model using pickle
+    # Create a progress bar
+    progress_bar = st.progress(0)
+
+    # Simulate a loading process with incremental updates
+    for i in range(100):
+        # Update progress bar
+        time.sleep(0.01)  # Simulate some aspect of loading
+        progress_bar.progress(i + 1)
+
     try:
         with open(model_path, 'rb') as model_file:
             model = pickle.load(model_file)
+
+            # Complete the progress bar
+            progress_bar.progress(100)
+            progress_bar.empty()
+
         return model
     except ModuleNotFoundError as e:
         st.error(f"Error loading model: {e}")
@@ -99,7 +113,8 @@ def classical_ml_predict(model, image):
         3: 'Apple___healthy'
     }
     predicted_class = indices_dict[predicted_label]
-    return f"Predicted class: {predicted_class}"
+    
+    return predicted_class
 
 # Function to extract combined HOG and color histogram features
 
@@ -112,8 +127,7 @@ def extract_hog_color_hist_features(image, resize=(256, 256)):
                        cells_per_block=(2, 2), block_norm='L2-Hys', visualize=False)
 
     # Extract color histogram features
-    hist = cv2.calcHist([image], [0, 1, 2], None, [
-                        8, 8, 8], [0, 256, 0, 256, 0, 256])
+    hist = cv2.calcHist([image], [0, 1, 2], None, [8, 8, 8], [0, 256, 0, 256, 0, 256])
     hist = cv2.normalize(hist, hist).flatten()
 
     # Combine HOG and color histogram features
@@ -276,7 +290,7 @@ def load_model_with_progress(model_path) -> tf.keras.Model:
     # Simulate a loading process with incremental updates
     for i in range(100):
         # Update progress bar
-        time.sleep(0.1)  # Simulate some aspect of loading
+        time.sleep(0.01)  # Simulate some aspect of loading
         progress_bar.progress(i + 1)
 
     # Load your model (assuming the model is saved in the same directory)
@@ -348,6 +362,9 @@ def predict(model: tf.keras.Model, image_array: np.array) -> np.array:
     predicted_classes = np.array([])
     predicted_classes = np.concatenate([predicted_classes, np.argmax(
         model(image_array, training=False), axis=-1)]).astype(int)
-    c_predicted_class = np.array(class_names)[predicted_classes]
+    c_predicted_class = np.array(class_names)[predicted_classes][0]
+    confidence = np.max(model(image_array, training=False), axis=-1).item()
+    # c_predicted_class = f"{c_predicted_class:.2%}"
+    confidence = f"{confidence:.2%}"
 
-    return c_predicted_class
+    return c_predicted_class, confidence

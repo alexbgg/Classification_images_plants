@@ -33,7 +33,7 @@ alex = {
 }
 
 # Configuration for the classical machine learning model
-classical = {
+arif = {
     "model_name": "xgboost_model.pkl",
 }
 
@@ -42,7 +42,7 @@ model_list = {
     "Transfer Learning": luigi,
     "LeNet": bernd,
     "Augmented LeNet": alex,
-    "Machine Learning (XGBClassifier)": classical,
+    "Machine Learning (XGBClassifier)": arif,
 }
 
 
@@ -64,7 +64,7 @@ def prediction_home():
         st.session_state.model_value = None
 
     st.header("Prediction 🍃")
-    st.subheader("1. Choose which model you want to use for")
+    st.subheader("1. Choose which model you want to use")
 
     csb1, _, _ = st.columns(3)
     with csb1:
@@ -133,10 +133,14 @@ def prediction_home():
                         if selected_model == "Machine Learning (XGBClassifier)":
                             result = utils.classical_ml_predict(
                                 st.session_state.model_value, img_info)
+                            confidence = ""
                         else:
                             image_array = utils.preprocess_image(
                                 img_info, model_list[selected_model])
-                            result = utils.predict(
+                            result, confidence = utils.predict(
                                 st.session_state.model_value, image_array)
 
-                        st.write(result)
+                        result = "web/img/classes/" + result + "_leaf.png"
+                        img_result = Image.open(result)
+                        st.image(img_result, width=150)
+                        st.write(confidence)

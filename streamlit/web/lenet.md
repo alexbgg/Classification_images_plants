@@ -3,18 +3,18 @@
 - LeNet was introduced in DataScientest modules _151.2 - Convolutional Neural Networks with Keras (EN)_ and _155 - Tensorflow (EN)_
 - First model with which we successfully scaled up to full dataset of 51 classes with ~61K images
 - Very acceptable result and fitting time already at initial attempt: F1-Score > 80%, < 60 minutes for model training on standard laptop 
-- Brief overview and comparison of LeNet: https://sh-tsang.medium.com/paper-brief-review-of-lenet-1-lenet-4-lenet-5-boosted-lenet-4-image-classification-1f5f809dbf17
+- Brief overview and comparison of LeNet - Ref #3
 
 ### Trials to further improve F1-Score and to address overfitting
 - Converting to alternative image sizes at loading (between 32 x 32 and 256 x 256)
 - Modified batch sizes for training (between 32 and 256)
-- Adding more dropout layers (note: initial model already had one dropout layer)
-- Adusting dropout rate for existing dropout layer (between 0.2 and 0.5)
-- Applying L2 weight regularization (on one and on three layers)
+- Adding more dropout layers
+- Adusting dropout rates (between 0.2 and 0.5)
+- Applying L2 weight regularization
 - Adjusting class-weights for classes with low representation
-- Using augmentation to generate additional images: This didn't improve the F1-Score but indeed reduced overfitting
+- Using augmentation layers to generate additional images: this didn't improve the F1-Score but indeed reduced overfitting
 
-Also see https://www.tensorflow.org/tutorials/keras/overfit_and_underfit
+Also see "Overfit and underfit" - Ref #4
 
 ### Setup after tuning
 Final setup after finishing trials:
