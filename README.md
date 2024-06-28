@@ -13,42 +13,44 @@ This project was made during the Data Scientist course of [Datascientest](https:
 
 Coordinator Romain Lesieur
 
-## Project Organization (To be updated)
+## Project Organization
 
-    ├── LICENSE
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── Plan_summary.md    <- The summary plan for developers using this project.
-    ├── data               <- Should be in your computer but not on Github (only in .gitignore)
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
+    ├── .github
+    │   └── workflows         <- Contains the template for the Pull Request
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    ├── README.md             <- The top-level README for developers using this project.
+    ├── ROADMAP.md            <- The summary plan for developers using this project.
     │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's name, and a short `-` delimited description, e.g.
-    │                         `1.0-alban-data-exploration`.
+    ├── data                  <- Should be in your computer but not on Github (only in .gitignore)
+    │   └── raw               <- The original, immutable data dump.
     │
-    ├── references         <- Data dictionaries, manuals, links, and all other explanatory materials.
+    ├── models                <- Trained and serialized models, model predictions, or model summaries
     │
-    ├── reports            <- The reports that you'll make during this project as PDF
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    ├── notebooks             <- Jupyter notebooks. Naming convention is a number (for ordering),
+    │                            the creator's name, and a short `-` delimited description, e.g.
+    │                            `NAME_x.x_<step>`.
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
+    ├── references            <- Data dictionaries, manuals, links, and all other explanatory materials.
     │
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   ├── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │   │   └── visualize.py
+    ├── reports               <- The reports that you'll make during this project as PDF
+    │   └── figures           <- Generated graphics and figures to be used in reporting
+    │
+    ├── requirements.txt      <- The requirements file for reproducing the analysis environment, e.g.
+    │                            generated with `pip freeze > requirements.txt`
+    │
+    ├── poetry.lock           <- Dependencies used by poetry.
+    ├── pyproject.toml        <- Package manager.
+    │
+    ├── streamlit             <- Source code for use in this project.
+        │
+        ├── pages             <- Here are the dynamic pages created with Streamlit
+        │
+        ├── web               <- Contains all the static paged that are parsed using Streamlit
+        │   ├── img           <- Images used inside the Streamlit app
+        │       └── classes   <- Images that will show the prediction of each class
+        │
+        ├── utils.py          <- Utility module for presenting and managing the Tensorflow methods
+        ├── app.py            <- main Streamlit app
 
 
 ## Summary plan
