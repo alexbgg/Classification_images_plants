@@ -29,4 +29,4 @@
  
 ---
 
-**"Thanks God, we finish this project :smiling_imp:"**
+**"Thank God, we have finished this project :smiling_imp:"**

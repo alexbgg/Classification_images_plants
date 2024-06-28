@@ -18,7 +18,7 @@
 
 <br>
 
-### Image references
+### References
 
    *Some images are powered by DALL-E 3 using bing https://www.bing.com*
    
