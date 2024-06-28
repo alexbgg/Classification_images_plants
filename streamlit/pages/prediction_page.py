@@ -1,9 +1,7 @@
 import time
 from tkinter import HIDDEN
-
 import utils
 from PIL import Image
-
 import streamlit as st
 
 
@@ -34,11 +32,17 @@ alex = {
     "keep_aspect_ratio": False,
 }
 
+# Configuration for the classical machine learning model
+classical = {
+    "model_name": "xgboost_model.pkl",
+}
+
 # Mapping model types to their configurations
 model_list = {
     "Transfer Learning": luigi,
     "LeNet": bernd,
     "Augmented LeNet": alex,
+    "Machine Learning (XGBClassifier)": classical,
 }
 
 
@@ -65,9 +69,10 @@ def prediction_home():
     csb1, _, _ = st.columns(3)
     with csb1:
         selected_model = st.selectbox("Select a model to load:",
-            ["Please select a model..."] + list(model_list.keys()),
-            key="model_select_box", label_visibility=HIDDEN
-        )
+                                      ["Please select a model..."] +
+                                      list(model_list.keys()),
+                                      key="model_select_box", label_visibility=HIDDEN
+                                      )
 
         # Conditional content based on the selection
         if selected_model != "Please select a model...":
@@ -79,15 +84,24 @@ def prediction_home():
                 model_file = model_list[selected_model]["model_name"]
 
                 st.write(f"Loading model: {model_file}")
-                model = utils.load_model_with_progress("../models/" + model_file)
+
+                if selected_model == "Machine Learning (XGBClassifier)":
+                    model = utils.load_classical_model(
+                        "../models/" + model_file)
+                else:
+                    model = utils.load_model_with_progress(
+                        "../models/" + model_file)
+
                 st.session_state.model_value = model
 
                 st.success(f"Model {selected_model} loaded successfully!")
-                st.write("Now you can use the model for predictions or further analysis:")
+                st.write(
+                    "Now you can use the model for predictions or further analysis:")
 
             st.write("")
             st.subheader("Upload an image")
-            st.markdown("*Note: to pursue a purposeful usage, do not load impractical images.*")
+            st.markdown(
+                "*Note: to pursue a purposeful usage, do not load impractical images.*")
 
             image, image_valid = utils.upload_image()
             st.session_state.previous_up_img_value = image_valid
@@ -116,8 +130,13 @@ def prediction_home():
 
                     # Add here the prediction model result.
                     if st.session_state.previous_up_img_value:
-                        image_array = utils.preprocess_image(img_info, model_list[selected_model])
-                        pred_classes = utils.predict(st.session_state.model_value, image_array)
-                        print(pred_classes)
-        else:
-            print("Conditional content based on the selection")
+                        if selected_model == "Machine Learning (XGBClassifier)":
+                            result = utils.classical_ml_predict(
+                                st.session_state.model_value, img_info)
+                        else:
+                            image_array = utils.preprocess_image(
+                                img_info, model_list[selected_model])
+                            result = utils.predict(
+                                st.session_state.model_value, image_array)
+
+                        st.write(result)
