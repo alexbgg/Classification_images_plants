@@ -8,11 +8,11 @@
 ### Trials to further improve F1-Score and to address overfitting
 - Converting to alternative image sizes at loading (between 32 x 32 and 256 x 256)
 - Modified batch sizes for training (between 32 and 256)
-- Adding more dropout layers (note: initial model already had one dropout layer)
-- Adusting dropout rate for existing dropout layer (between 0.2 and 0.5)
-- Applying L2 weight regularization (on one and on three layers)
+- Adding more dropout layers
+- Adusting dropout rates (between 0.2 and 0.5)
+- Applying L2 weight regularization
 - Adjusting class-weights for classes with low representation
-- Using augmentation to generate additional images: This didn't improve the F1-Score but indeed reduced overfitting
+- Using augmentation layers to generate additional images: this didn't improve the F1-Score but indeed reduced overfitting
 
 Also see "Overfit and underfit" - Ref #4
 
