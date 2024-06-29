@@ -1,8 +1,15 @@
 # Classic Machine Learning for Image Classification 🍃
 
-- **Overview**
-  - Examines traditional machine learning techniques for image classification.
-  - Explores optimal feature extraction methods and algorithm selection.
+### Overview
+
+- Examines traditional machine learning techniques for image classification.
+- Explores optimal feature extraction methods and algorithm selection.
+
+### Limitations
+
+- Findings based on limited computational resources and a subset of the dataset (only 4 classes out of 51).
+- The findings are based on a predominantly heuristic approach and non-exhaustive analysis of the relevant knowledge base.
+- Future work should explore more algorithms and methodologies.
 
 ### Image Processing and Feature Extraction
 
@@ -72,13 +79,6 @@
 - **Pre-trained VGG16 Model for Feature Extraction**
   - Achieved similar accuracy (~0.97) as XGBClassifier.
   - Less suitable due to computational demands.
-
-### Disclaimer
-
-- **Limitations**
-  - Findings based on limited computational resources and a subset of the dataset (only 4 classes out of 51).
-  - The findings are based on a predominantly heuristic approach and non-exhaustive analysis of the relevant knowledge base.
-  - Future work should explore more algorithms and methodologies.
 
 ### Conclusion
 
