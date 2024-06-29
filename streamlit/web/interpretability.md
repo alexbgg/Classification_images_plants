@@ -1,7 +1,7 @@
 # Interpretability 🍃
 ## *target model*: our 🥇-performing fine-tuned MobileNetV2
 ### Why?
-- Franky, we can't believe Google makes great things for free 😉
+- Frankly, we can't believe Google makes great things for free 😉
 - Furthermore, we wanna gain more insight 🧐 into what makes our fine-tuned winner model a true champ
 - More specifically, we'd like to know why our champ makes a certain class prediction when served with a certain input image
 - Ideally, we want to get this visual inspection performed pixel-wise
