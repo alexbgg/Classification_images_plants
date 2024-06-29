@@ -1,4 +1,3 @@
-import time
 from tkinter import HIDDEN
 import utils
 from PIL import Image
