@@ -2,7 +2,10 @@
 
 ### Introduction to MobileNetV2
 - We leveraged this model to handle our extensive dataset, featuring over 61,000 images across 51 diverse classes.
-- From the get-go, MobileNetV2 demonstrated impressive performance: achieving an F1-Score above 90% while keeping the training time under 4 hours with 20 epochs on a standard laptop.
+- From the get-go, MobileNetV2 demonstrated impressive performance: achieving a F1-Score above 90% while keeping the training time under 4 hours with 20 epochs on a laptop with the following Video card:
+  - Graphics co-processor:	**NVIDIA GeForce GTX 1060**
+  - Graphics RAM: size	**6 GB**
+  - GPU clock speed:	**1759 MHz**
 
 For a more detailed review of MobileNetV2, check out this breakdown: "Tensorflow MobileNetV2" - Ref #5
 
@@ -68,4 +71,4 @@ After different trials and configurations, we settled on the following setup:
 <br>
 
 ### Conclusion
-MobileNetV2 not only met but exceeded our performance expectations with the F1-Score over 97% maybe 98% :smiley:.
+MobileNetV2 not only met but exceeded our performance expectations with the F1-Score over 97% :smiley:.
