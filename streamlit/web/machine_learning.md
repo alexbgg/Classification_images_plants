@@ -77,7 +77,7 @@
 ### Comparison with pre-trained VGG16 Model
 
 - **Pre-trained VGG16 Model for Feature Extraction**
-  - Achieved similar accuracy (~0.97) as XGBClassifier.
+  - Achieved similar accuracy (~0.97) as combination of HOG and CH.
   - Less suitable due to computational demands.
 
 ### Conclusion
