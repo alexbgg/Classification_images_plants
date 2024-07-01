@@ -41,7 +41,7 @@ Coordinator Romain Lesieur
     ├── poetry.lock           <- Dependencies used by poetry.
     ├── pyproject.toml        <- Package manager.
     │
-    ├── streamlit             <- Source code for use in this project.
+    └── streamlit             <- Source code for use in this project.
         │
         ├── pages             <- Here are the dynamic pages created with Streamlit
         │
@@ -50,7 +50,7 @@ Coordinator Romain Lesieur
         │       └── classes   <- Images that will show the prediction of each class
         │
         ├── utils.py          <- Utility module for presenting and managing the Tensorflow methods
-        ├── app.py            <- main Streamlit app
+        └── app.py            <- main Streamlit app
 
 
 ## Summary plan

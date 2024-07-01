@@ -1,4 +1,3 @@
-import time
 from tkinter import HIDDEN
 import utils
 from PIL import Image
@@ -63,7 +62,7 @@ def prediction_home():
     if "model_value" not in st.session_state:
         st.session_state.model_value = None
 
-    st.header("Prediction 🍃")
+    st.markdown("# Prediction 🍃")
     st.subheader("1. Choose which model you want to use")
 
     csb1, _, _ = st.columns(3)
