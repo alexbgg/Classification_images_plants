@@ -55,13 +55,13 @@ After rendering 1, if not already done, I will instantiate a GitHub repo for you
 Rendering 2: Modeling report [here](reports/DST_DS_Plant_Recognition_Modeling__Report_2.pdf).
 
 ## Step 5
-- [ ] Final report + codes on GitHub: 21.06.2024
+- [X] Final report + codes on GitHub: 21.06.2024
 
 You will submit the final report: made up of the first two renderings, it concretizes your vision and your work on your project by integrating a conclusion and an opening.
 You also turn in your clean and commented code on GitHub, if time allows you will be able to refine your model and modeling pipeline during this step.
 
 ## Step 6
-- [ ] Streamlit + Defense: 01.07.2024
+- [X] Streamlit + Defense: 01.07.2024
 
 The document Defense_Methodology summarizes the defense’s organization.
 
@@ -69,7 +69,7 @@ The presentation will be as follows:
 - 20 minutes of presentation
 - 10 minutes of questions from the jury members
 
-You have the possibility to make either :
+You can make either :
 - a Powerpoint presentation + Streamlit demo
 - the entire presentation with your Streamlit application
 
